@@ -9,7 +9,7 @@ it includes
 - install of several apps
 - add environment parameter to enable wayland for firefox install of x-wayland
 - add flathub for obs-studio since this doesn't exist in the opensuse repos and the one in packman is too old
-- activate shell zsh with personal setup
+- activate shell zsh with personal setup (kind of similar to manjaro-setup)
 - enable libvirtd service to enable virtual machines
 - enable dkms service so that nvidia and tuxedo drivers are automatically updates with a kernel update
 - install tuxedo-driver for keyboard backlight for my laptop model (should work with many xmg or clevo models)
