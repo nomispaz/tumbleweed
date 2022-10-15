@@ -91,7 +91,8 @@ chmod +x ~/install/NVIDIA-Linux-x86_64-515.76.run
 #boot into cmd without nouveau by adding nomodeset 3 to grub entry during boot
 #login with root
 #then run NVIDIA Installer. dont blacklist (was already done above), no xconf, yes to dkms
-sudo sh NVIDIA-Linux-x86_64-515.76.run
-sudo zypper install suse-prime
+#sudo sh NVIDIA-Linux-x86_64-515.76.run
+#sudo zypper install suse-prime
+#next command only necessary if suse-prime didnt already updated initram with dracut.
 #sudo dracut -f
 #reboot
