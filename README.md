@@ -16,8 +16,8 @@ it includes
 - copy of thunderbird profiles from backup
 - workflow to install nvidia drivers from source
 
-# install_firefox_extensions.sh 
-contains the commands to download the latest version of the firefox extensions I use and to instal them
+# install_firefox_extensions_and_passwords.sh 
+contains the commands to download the latest version of the firefox extensions I use and to install them. Additionally, the saved passwords are restored from backup
 
 # mount_veracrypt.sh and unmount_veracrypt.sh 
 contain commands to mount and unmount veracrypt volumes using cryptsetup since veracrypt is not available in opensuse repos.
