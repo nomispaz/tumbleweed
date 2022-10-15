@@ -1,4 +1,4 @@
-tumbleweed_afterinstall.sh 
+# tumbleweed_afterinstall.sh 
 contains commands to recreate my system after a fresh install.
 it includes
 - change of hostname
@@ -16,6 +16,8 @@ it includes
 - copy of thunderbird profiles from backup
 - workflow to install nvidia drivers from source
 
-#install_firefox_extensions.sh contains the commands to download the latest version of the firefox extensions I use and to instal them
+# install_firefox_extensions.sh 
+contains the commands to download the latest version of the firefox extensions I use and to instal them
 
-#mount_veracrypt.sh and unmount_veracrypt.sh contain commands to mount and unmount veracrypt volumes using cryptsetup since veracrypt is not available in opensuse repos.
+# mount_veracrypt.sh and unmount_veracrypt.sh 
+contain commands to mount and unmount veracrypt volumes using cryptsetup since veracrypt is not available in opensuse repos.
