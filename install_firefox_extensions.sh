@@ -11,3 +11,6 @@ do
   echo "Installing firefox extension $f ..."
   firefox $f
 done
+
+#restore saved passwords
+cp /data/install/firefox_passwords/* ~/.mozilla/firefox/*.default-release/
