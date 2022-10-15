@@ -1,4 +1,5 @@
-#tumbleweed_afterinstall.sh contains commands to recreate my system after a fresh install.
+tumbleweed_afterinstall.sh 
+contains commands to recreate my system after a fresh install.
 it includes
 - change of hostname
 - lock packages and patterns for zypper dup command
