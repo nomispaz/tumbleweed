@@ -39,7 +39,7 @@ sudo zypper refresh
 #change only specified packages to packman
 sudo zypper install --from packman_essentials ffmpeg gstreamer-plugins-{good,bad,ugly,libav} libavcodec-full vlc-codecs vlc
 
-sudo zypper install git thunderbird zsh zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search clipgrab clamav xlsclients keepassxc discord virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms
+sudo zypper install git thunderbird zsh zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search clipgrab clamav xlsclients keepassxc discord virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch
 
 #enable wayland in different programs
 mkdir -p ~/.config/environment.d/
