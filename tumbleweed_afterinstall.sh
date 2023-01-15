@@ -26,6 +26,12 @@ sudo rkhunter -c -sk
 #third party repo
 sudo zypper addrepo -cfp 90 'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/Essentials' packman_essentials
 
+#add personal repo
+sudo zypper addrepo https://download.opensuse.org/repositories/home:/lordpazifist/openSUSE_Tumbleweed/home:lordpazifist.repo lordpazifist
+
+#add nvidia repo
+sudo zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
+
 #add zsh repos
 sudo zypper addrepo https://download.opensuse.org/repositories/shells:zsh-users:zsh-autosuggestions/openSUSE_Tumbleweed/shells:zsh-users:zsh-autosuggestions.repo
 sudo zypper addrepo https://download.opensuse.org/repositories/shells:zsh-users:zsh-syntax-highlighting/openSUSE_Tumbleweed/shells:zsh-users:zsh-syntax-highlighting.repo
@@ -39,7 +45,10 @@ sudo zypper refresh
 #change only specified packages to packman
 sudo zypper install --from packman_essentials ffmpeg gstreamer-plugins-{good,bad,ugly,libav} libavcodec-full vlc-codecs vlc
 
-sudo zypper install git thunderbird zsh zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search clipgrab clamav xlsclients keepassxc discord virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch
+#install from personal repo since discord is not updated regularly by suse
+sudo zypper install --from lordpazifist discord
+
+sudo zypper install git thunderbird zsh zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search clipgrab clamav xlsclients keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch
 
 #enable wayland in different programs
 mkdir -p ~/.config/environment.d/
@@ -79,15 +88,28 @@ sudo modprobe tuxedo_keyboard
 #copy thunderbird-profiles
 cp -r ~/install/.thunderbird ~/
 
+#add user simonheise to wheel-group
+usermod -aG wheel simonheise
+
+#allow users of wheel group to execute all commands
+echo "%wheel ALL=(ALL:ALL) ALL" | sudo tee -a /etc/sudoers
+#ask for root pw when sudoing
+echo "Defaults targetpw # Ask for the password of the target user" | sudo tee -a /etc/sudoers
+
+#nvidia now via repos
+sudo zypper install x11-video-nvidiaG06 nvidia-glG06 suse-prime bbswitch-kmp-default
+
+sudo prime-select nvidia
+
 #nvidia
 #zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
 #or directly from nvidia:
-sudo zypper install kernel-devel kernel-source gcc make dkms acpid libglvnd libglvnd-devel
-echo 'blacklist nouveau' | sudo tee -a /etc/modprobe.d/nvidia.conf
-echo 'add_drivers+=" nvidia nvidia_modeset nvidia_uvm nvidia_drm "' | sudo tee -a /etc/dracut.conf.d/nvidia.conf
+#sudo zypper install kernel-devel kernel-source gcc make dkms acpid libglvnd libglvnd-devel
+#echo 'blacklist nouveau' | sudo tee -a /etc/modprobe.d/nvidia.conf
+#echo 'add_drivers+=" nvidia nvidia_modeset nvidia_uvm nvidia_drm "' | sudo tee -a /etc/dracut.conf.d/nvidia.conf
 #Download nvidia driver from https://www.nvidia.de/Download/index.aspx?lang=de
 #safe "run" file in install directory
-chmod +x ~/install/NVIDIA-Linux-x86_64-515.76.run
+#chmod +x ~/install/NVIDIA-Linux-x86_64-515.76.run
 #boot into cmd without nouveau by adding nomodeset 3 to grub entry during boot
 #login with root
 #then run NVIDIA Installer. dont blacklist (was already done above), no xconf, yes to dkms
