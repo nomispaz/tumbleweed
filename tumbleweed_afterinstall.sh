@@ -65,6 +65,9 @@ flatpak install flathub com.obsproject.Studio
 #install freeplan mindmapping tool from flathub
 flatpak install flathub org.freeplane.App
 
+#install flatseal to configure access rights for flatpaks
+flatpak install com.github.tchx84.Flatseal
+
 #zsh will be activated after restart or relogon
 cp zshrc ~/.zshrc
 #to be able to chsh
