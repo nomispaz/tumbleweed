@@ -48,7 +48,7 @@ sudo zypper install --from packman_essentials ffmpeg gstreamer-plugins-{good,bad
 #install from personal repo since discord is not updated regularly by suse
 sudo zypper install --from home_nomispaz discord
 
-sudo zypper install git thunderbird zsh zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search clipgrab clamav xlsclients keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch
+sudo zypper install git thunderbird zsh zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search clipgrab clamav xlsclients keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch osc spec-cleaner testdisk
 
 #enable wayland in different programs
 mkdir -p ~/.config/environment.d/
