@@ -27,7 +27,7 @@ sudo rkhunter -c -sk
 sudo zypper addrepo -cfp 90 'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/Essentials' packman_essentials
 
 #add personal repo
-sudo zypper addrepo https://download.opensuse.org/repositories/home:/lordpazifist/openSUSE_Tumbleweed/home:lordpazifist.repo lordpazifist
+sudo zypper addrepo https://download.opensuse.org/repositories/home:nomispaz/openSUSE_Tumbleweed/home:nomispaz.repo
 
 #add nvidia repo
 sudo zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
@@ -46,7 +46,7 @@ sudo zypper refresh
 sudo zypper install --from packman_essentials ffmpeg gstreamer-plugins-{good,bad,ugly,libav} libavcodec-full vlc-codecs vlc
 
 #install from personal repo since discord is not updated regularly by suse
-sudo zypper install --from lordpazifist discord
+sudo zypper install --from home_nomispaz discord
 
 sudo zypper install git thunderbird zsh zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search clipgrab clamav xlsclients keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch
 
@@ -61,6 +61,9 @@ sudo freshclam
 #opensuse doesn'T have obs-studio -- flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub com.obsproject.Studio
+
+#install freeplan mindmapping tool from flathub
+flatpak install flathub org.freeplane.App
 
 #zsh will be activated after restart or relogon
 cp zshrc ~/.zshrc
