@@ -32,6 +32,13 @@ sudo zypper addrepo https://download.opensuse.org/repositories/home:nomispaz/ope
 #add nvidia repo
 sudo zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
 
+#add security and game tools
+sudo zypper addrepo https://download.opensuse.org/repositories/games:tools/openSUSE_Tumbleweed/games:tools.repo
+sudo zypper addrepo https://download.opensuse.org/repositories/security/openSUSE_Tumbleweed/security.repo
+
+#add tuxedo
+sudo zypper addrepo https://rpm.tuxedocomputers.com/opensuse/15.4/repo-tuxedo-computers.repo
+
 #add zsh repos
 sudo zypper addrepo https://download.opensuse.org/repositories/shells:zsh-users:zsh-autosuggestions/openSUSE_Tumbleweed/shells:zsh-users:zsh-autosuggestions.repo
 sudo zypper addrepo https://download.opensuse.org/repositories/shells:zsh-users:zsh-syntax-highlighting/openSUSE_Tumbleweed/shells:zsh-users:zsh-syntax-highlighting.repo
@@ -48,7 +55,7 @@ sudo zypper install --from packman_essentials ffmpeg gstreamer-plugins-{good,bad
 #install from personal repo since discord is not updated regularly by suse
 sudo zypper install --from home_nomispaz discord
 
-sudo zypper install git thunderbird zsh zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search clipgrab clamav xlsclients keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch osc spec-cleaner testdisk
+sudo zypper install git thunderbird zsh zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search clipgrab clamav xlsclients keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch osc spec-cleaner testdisk firelight screenfetch veracrypt
 
 #enable wayland in different programs
 mkdir -p ~/.config/environment.d/
@@ -65,9 +72,6 @@ flatpak install flathub com.obsproject.Studio
 #install freeplan mindmapping tool from flathub
 flatpak install flathub org.freeplane.App
 
-#install flatseal to configure access rights for flatpaks
-flatpak install com.github.tchx84.Flatseal
-
 #zsh will be activated after restart or relogon
 cp zshrc ~/.zshrc
 #to be able to chsh
@@ -83,13 +87,16 @@ sudo systemctl enable dkms.service
 sudo systemctl start dkms.service
 
 #https://github.com/tuxedocomputers/tuxedo-keyboard
-sudo zypper install make gcc kernel-devel
-git clone https://github.com/tuxedocomputers/tuxedo-keyboard.git ~/git_clones/tuxedo-keyboard
-cd ~/git_clones/tuxedo-keyboard
-git checkout release
-make clean
-sudo make dkmsinstall
-sudo modprobe tuxedo_keyboard
+#sudo zypper install make gcc kernel-devel
+#git clone https://github.com/tuxedocomputers/tuxedo-keyboard.git ~/git_clones/tuxedo-keyboard
+#cd ~/git_clones/tuxedo-keyboard
+#git checkout release
+#make clean
+#sudo make dkmsinstall
+#sudo modprobe tuxedo_keyboard
+
+#tuxedo-keyboard an tuxedo-control-center via tuxedo-repos
+sudo zypper install tuxedo-control-center tuxedo-keyboard
 
 #copy thunderbird-profiles
 cp -r ~/install/.thunderbird ~/
