@@ -4,7 +4,7 @@
 sudo zypper removerepo openSUSE-20220930-0
 
 #set hostname
-sudo hostnamectl set-hostname XMGp507Tumbleweed
+sudo hostnamectl set-hostname XMGneo15Tumbleweed
 
 #remove bloat
 sudo zypper remove -u discover
