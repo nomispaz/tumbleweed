@@ -110,9 +110,11 @@ echo "%wheel ALL=(ALL:ALL) ALL" | sudo tee -a /etc/sudoers
 echo "Defaults targetpw # Ask for the password of the target user" | sudo tee -a /etc/sudoers
 
 #nvidia now via repos
-sudo zypper install x11-video-nvidiaG06 nvidia-glG06 suse-prime bbswitch-kmp-default
+sudo zypper install x11-video-nvidiaG06 nvidia-glG06
 
-sudo prime-select nvidia
+#try without prime-select for now
+#sudo zypper install suse-prime bbswitch-kmp-default
+#sudo prime-select nvidia
 
 #nvidia
 #zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
