@@ -141,3 +141,4 @@ sudo cp /usr/share/doc/NVIDIA_GLX-1.0/nvidia-dbus.conf /etc/dbus-1/system.d
 sudo systemctl enable nvidia-powerd.service
 sudo systemctl start nvidia-powerd.service
 
+#for automatic signing of dkms modules follow the instructions from /usr/share/doc/packages/dkms/README.md
