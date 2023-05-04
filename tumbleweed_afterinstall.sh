@@ -118,9 +118,9 @@ sudo zypper install x11-video-nvidiaG06 nvidia-glG06
 
 #nvidia
 #zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
-#or directly from nvidia:
-#sudo zypper install kernel-devel kernel-source gcc make dkms acpid libglvnd libglvnd-devel
-#echo 'blacklist nouveau' | sudo tee -a /etc/modprobe.d/nvidia.conf
+#or directly from nvidia. Better since dkms works with self build zen-kernel
+sudo zypper install kernel-devel kernel-source gcc make dkms acpid libglvnd libglvnd-devel and supports nvidia-powerd
+echo 'blacklist nouveau' | sudo tee -a /etc/modprobe.d/nvidia.conf
 #echo 'add_drivers+=" nvidia nvidia_modeset nvidia_uvm nvidia_drm "' | sudo tee -a /etc/dracut.conf.d/nvidia.conf
 #Download nvidia driver from https://www.nvidia.de/Download/index.aspx?lang=de
 #safe "run" file in install directory
@@ -129,7 +129,15 @@ sudo zypper install x11-video-nvidiaG06 nvidia-glG06
 #login with root
 #then run NVIDIA Installer. dont blacklist (was already done above), no xconf, yes to dkms
 #sudo sh NVIDIA-Linux-x86_64-515.76.run
-#sudo zypper install suse-prime
-#next command only necessary if suse-prime didnt already updated initram with dracut.
 #sudo dracut -f
 #reboot
+
+#enable support for external monitor (wayland and xorg), tested with 3070ti mobile, dp and hdmi connected to nvidia gpu
+#50-nvidia-default.conf is created when installing the official kmp nvidia drivers from the repo
+sudo cp 50-nvidia-default.conf /usr/lib/modprobe.d/50-nvidia-default.conf
+
+#enable nvidia-powerd: https://download.nvidia.com/XFree86/Linux-x86_64/510.73.05/README/dynamicboost.html
+sudo cp /usr/share/doc/NVIDIA_GLX-1.0/nvidia-dbus.conf /etc/dbus-1/system.d
+sudo systemctl enable nvidia-powerd.service
+sudo systemctl start nvidia-powerd.service
+
