@@ -1,16 +1,13 @@
 #!/bin/bash
 
-#Irgendwie war noch USB-Stick repo drin. die musste raus.
-sudo zypper removerepo openSUSE-20220930-0
-
 #set hostname
 sudo hostnamectl set-hostname XMGneo15Tumbleweed
 
 #remove bloat
-sudo zypper remove -u discover
+sudo zypper remove -u discover6
 
 #lock packes and patterns so that programs are only updated, not installed
-sudo zypper addlock discover
+sudo zypper addlock discover6
 sudo zypper addlock -t pattern games
 sudo zypper addlock -t pattern kde_pim
 
@@ -37,12 +34,7 @@ sudo zypper addrepo https://download.opensuse.org/repositories/games:tools/openS
 sudo zypper addrepo https://download.opensuse.org/repositories/security/openSUSE_Tumbleweed/security.repo
 
 #add tuxedo
-sudo zypper addrepo https://rpm.tuxedocomputers.com/opensuse/15.4/repo-tuxedo-computers.repo
-
-#add zsh repos
-sudo zypper addrepo https://download.opensuse.org/repositories/shells:zsh-users:zsh-autosuggestions/openSUSE_Tumbleweed/shells:zsh-users:zsh-autosuggestions.repo
-sudo zypper addrepo https://download.opensuse.org/repositories/shells:zsh-users:zsh-syntax-highlighting/openSUSE_Tumbleweed/shells:zsh-users:zsh-syntax-highlighting.repo
-sudo zypper addrepo https://download.opensuse.org/repositories/shells:zsh-users:zsh-history-substring-search/openSUSE_Tumbleweed/shells:zsh-users:zsh-history-substring-search.repo
+sudo zypper addrepo https://rpm.tuxedocomputers.com/opensuse/15.5/repo-tuxedo-computers.repo
 
 sudo zypper refresh
 
@@ -55,7 +47,7 @@ sudo zypper install --from packman_essentials ffmpeg gstreamer-plugins-{good,bad
 #install from personal repo since discord is not updated regularly by suse
 sudo zypper install --from home_nomispaz discord
 
-sudo zypper install git thunderbird zsh zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search clipgrab clamav xlsclients keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch osc spec-cleaner testdisk firelight screenfetch veracrypt
+sudo zypper install git thunderbird clipgrab clamav keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch osc spec-cleaner testdisk screenfetch veracrypt neovim emacs fish alacritty
 
 #enable wayland in different programs
 mkdir -p ~/.config/environment.d/
@@ -96,7 +88,7 @@ sudo systemctl start dkms.service
 #sudo modprobe tuxedo_keyboard
 
 #tuxedo-keyboard an tuxedo-control-center via tuxedo-repos
-sudo zypper install tuxedo-control-center tuxedo-keyboard
+sudo zypper install tuxedo-control-center tuxedo-drivers
 
 #copy thunderbird-profiles
 cp -r ~/install/.thunderbird ~/
