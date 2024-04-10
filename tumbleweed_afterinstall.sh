@@ -44,7 +44,7 @@ sudo zypper refresh
 #change only specified packages to packman
 sudo zypper install --from packman_essentials ffmpeg gstreamer-plugins-{good,bad,ugly,libav} libavcodec-full vlc-codecs vlc
 
-sudo zypper install git thunderbird clipgrab clamav keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch osc spec-cleaner testdisk screenfetch veracrypt neovim emacs fish alacritty discord
+sudo zypper install git thunderbird clipgrab clamav keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch osc spec-cleaner testdisk screenfetch veracrypt neovim emacs fish alacritty discord gcc gcc-c++
 
 #enable wayland in different programs
 mkdir -p ~/.config/environment.d/
@@ -101,7 +101,7 @@ sudo zypper in nvidia-open-driver-G06-signed-kmp-default kernel-firmware-nvidia-
 #nvidia
 #zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
 #or directly from nvidia. Better since dkms works with self build zen-kernel
-sudo zypper install kernel-devel kernel-source gcc make dkms acpid libglvnd libglvnd-devel and supports nvidia-powerd
+sudo zypper install kernel-devel kernel-source make dkms acpid libglvnd libglvnd-devel and supports nvidia-powerd
 echo 'blacklist nouveau' | sudo tee -a /etc/modprobe.d/nvidia.conf
 #echo 'add_drivers+=" nvidia nvidia_modeset nvidia_uvm nvidia_drm "' | sudo tee -a /etc/dracut.conf.d/nvidia.conf
 #Download nvidia driver from https://www.nvidia.de/Download/index.aspx?lang=de
