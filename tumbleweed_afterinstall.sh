@@ -125,4 +125,7 @@ sudo systemctl start nvidia-powerd.service
 
 #for automatic signing of dkms modules follow the instructions from /usr/share/doc/packages/dkms/README.md
 
-# set adaptive-sync for external monitor to always under KDE to get maximum FPS on external monitor
+############################################
+#manual changes for KDE
+- set adaptive-sync for external monitor to always under KDE to get maximum FPS on external monitor
+- set inactivity and when laptop lid closed to "Do nothin" under power options. The system might not recover from sleep. TODO: check, where the problem is. Maybe swap-space?
