@@ -44,10 +44,7 @@ sudo zypper refresh
 #change only specified packages to packman
 sudo zypper install --from packman_essentials ffmpeg gstreamer-plugins-{good,bad,ugly,libav} libavcodec-full vlc-codecs vlc
 
-#install from personal repo since discord is not updated regularly by suse
-sudo zypper install --from home_nomispaz discord
-
-sudo zypper install git thunderbird clipgrab clamav keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch osc spec-cleaner testdisk screenfetch veracrypt neovim emacs fish alacritty
+sudo zypper install git thunderbird clipgrab clamav keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch osc spec-cleaner testdisk screenfetch veracrypt neovim emacs fish alacritty discord
 
 #enable wayland in different programs
 mkdir -p ~/.config/environment.d/
@@ -63,13 +60,6 @@ flatpak install flathub com.obsproject.Studio
 
 #install freeplan mindmapping tool from flathub
 flatpak install flathub org.freeplane.App
-
-#zsh will be activated after restart or relogon
-cp zshrc ~/.zshrc
-#to be able to chsh
-echo enter user password
-chsh -s /bin/zsh
-sudo chsh -s /bin/zsh
 
 #virtual machines
 sudo systemctl enable libvirtd.service
@@ -101,8 +91,8 @@ echo "%wheel ALL=(ALL:ALL) ALL" | sudo tee -a /etc/sudoers
 #ask for root pw when sudoing
 echo "Defaults targetpw # Ask for the password of the target user" | sudo tee -a /etc/sudoers
 
-#nvidia now via repos
-sudo zypper install x11-video-nvidiaG06 nvidia-glG06
+#nvidia now via repos (open-kernel-modules)
+sudo zypper in nvidia-open-driver-G06-signed-kmp-default kernel-firmware-nvidia-gspx-G06 nvidia-video-G06 nvidia-gl-G06 nvidia-compute-G06
 
 #try without prime-select for now
 #sudo zypper install suse-prime bbswitch-kmp-default
