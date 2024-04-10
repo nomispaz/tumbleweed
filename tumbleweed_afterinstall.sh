@@ -111,8 +111,8 @@ echo 'blacklist nouveau' | sudo tee -a /etc/modprobe.d/nvidia.conf
 #login with root
 #then run NVIDIA Installer. dont blacklist (was already done above), no xconf, yes to dkms
 #sudo sh NVIDIA-Linux-x86_64-515.76.run
-#sudo dracut -f
-#reboot
+sudo dracut -f
+reboot
 
 #enable support for external monitor (wayland and xorg), tested with 3070ti mobile, dp and hdmi connected to nvidia gpu
 #50-nvidia-default.conf is created when installing the official kmp nvidia drivers from the repo
