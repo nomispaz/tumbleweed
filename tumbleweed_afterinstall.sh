@@ -101,7 +101,7 @@ sudo zypper in nvidia-open-driver-G06-signed-kmp-default kernel-firmware-nvidia-
 #nvidia
 #zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
 #or directly from nvidia. Better since dkms works with self build zen-kernel
-sudo zypper install kernel-devel kernel-source make dkms acpid libglvnd libglvnd-devel and supports nvidia-powerd
+#sudo zypper install kernel-devel kernel-source make dkms acpid libglvnd libglvnd-devel and supports nvidia-powerd
 echo 'blacklist nouveau' | sudo tee -a /etc/modprobe.d/nvidia.conf
 #echo 'add_drivers+=" nvidia nvidia_modeset nvidia_uvm nvidia_drm "' | sudo tee -a /etc/dracut.conf.d/nvidia.conf
 #Download nvidia driver from https://www.nvidia.de/Download/index.aspx?lang=de
@@ -124,3 +124,5 @@ sudo systemctl enable nvidia-powerd.service
 sudo systemctl start nvidia-powerd.service
 
 #for automatic signing of dkms modules follow the instructions from /usr/share/doc/packages/dkms/README.md
+
+# set adaptive-sync for external monitor to always under KDE to get maximum FPS on external monitor
