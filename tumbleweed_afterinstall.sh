@@ -65,7 +65,7 @@ sudo zypper install tuxedo-control-center tuxedo-drivers
 cp -r ~/install/.thunderbird ~/
 
 #nvidia now via repos (open-kernel-modules)
-sudo zypper install nvidia-open-driver-G06-signed-kmp-default kernel-firmware-nvidia-gspx-G06 nvidia-video-G06 nvidia-gl-G06 nvidia-compute-G06
+sudo zypper install nvidia-open-driver-G06-signed-kmp-default kernel-firmware-nvidia-gspx-G06 nvidia-video-G06 nvidia-gl-G06 nvidia-compute-G06 nvidia-compute-utils-G06
 
 #try without prime-select for now
 #sudo zypper install suse-prime bbswitch-kmp-default
