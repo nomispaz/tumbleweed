@@ -43,5 +43,4 @@ cd /data/osc/multimedia:libs/ffmpeg-6
 
 ** Build
 - BUILD_ORIG 1 to enable codecs
-
 osc build openSUSE_Tumbleweed --clean -k /home/simonheise/git_repos/tumbleweed_localrepo/rpms/ffmpeg-6/ --define 'BUILD_ORIG 1'
