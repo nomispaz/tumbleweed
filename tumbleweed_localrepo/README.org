@@ -4,7 +4,9 @@ mkdir /data/osc
 * Mesa
 ** Checkout from Mesa-Repo
 cd /data/osc
+
 osc -A https://api.opensuse.org checkout X11:XOrg/Mesa & cd /data/osc/X11:XOrg/Mesa
+
 cd /data/osc/X11:XOrg/Mesa
 
 *** Builds
@@ -23,18 +25,23 @@ osc build openSUSE_Tumbleweed --clean -M drivers -k /home/simonheise/git_repos/t
 
 ** Checkout
 cd /data/osc
+
 osc -A https://api.opensuse.org checkout multimedia:libs/SVT-AV1
 
 ** Build
 osc build openSUSE_Tumbleweed --clean -k /home/simonheise/git_repos/tumbleweed_localrepo/rpms/SVT-AV1
+
 cd /data/osc/multimedia:libs/SVT-AV1
 
 * FFMPEG
 ** Checkout
 cd /data/osc
+
 osc -A https://api.opensuse.org checkout multimedia:libs/ffmpeg-6
+
 cd /data/osc/multimedia:libs/ffmpeg-6
 
 ** Build
 - BUILD_ORIG 1 to enable codecs
+
 osc build openSUSE_Tumbleweed --clean -k /home/simonheise/git_repos/tumbleweed_localrepo/rpms/ffmpeg-6/ --define 'BUILD_ORIG 1'
