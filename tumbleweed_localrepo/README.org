@@ -1,0 +1,40 @@
+* create osc-folder
+mkdir /data/osc
+
+* Mesa
+** Checkout from Mesa-Repo
+cd /data/osc
+osc -A https://api.opensuse.org checkout X11:XOrg/Mesa & cd /data/osc/X11:XOrg/Mesa
+cd /data/osc/X11:XOrg/Mesa
+
+*** Builds
+**** Without drivers
+- build mesa without drivers and save rpms to local_repo. Use BUILD_ORG to enable codecs
+- Set releasenumber to the number used in the original repo
+
+osc build openSUSE_Tumbleweed --clean -k /home/simonheise/git_repos/tumbleweed/tumbleweed_localrepo/rpms/mesa --define 'BUILD_ORIG 1' --release 1561
+
+****  With drivers
+- build mesa with drivers and save rpms to local_repo. Use BUILD_ORG 1 to enable codecs
+osc build openSUSE_Tumbleweed --clean -M drivers -k /home/simonheise/git_repos/tumbleweed/tumbleweed_localrepo/rpms/mesa --define 'BUILD_ORIG 1' --release 1561
+
+* SVT-AV1
+- as dependency for ffmpeg
+
+** Checkout
+cd /data/osc
+osc -A https://api.opensuse.org checkout multimedia:libs/SVT-AV1
+
+** Build
+osc build openSUSE_Tumbleweed --clean -k /home/simonheise/git_repos/tumbleweed_localrepo/rpms/SVT-AV1
+cd /data/osc/multimedia:libs/SVT-AV1
+
+* FFMPEG
+** Checkout
+cd /data/osc
+osc -A https://api.opensuse.org checkout multimedia:libs/ffmpeg-6
+cd /data/osc/multimedia:libs/ffmpeg-6
+
+** Build
+- BUILD_ORIG 1 to enable codecs
+osc build openSUSE_Tumbleweed --clean -k /home/simonheise/git_repos/tumbleweed_localrepo/rpms/ffmpeg-6/ --define 'BUILD_ORIG 1'
