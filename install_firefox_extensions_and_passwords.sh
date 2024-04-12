@@ -13,4 +13,4 @@ do
 done
 
 #restore saved passwords
-cp /data/install/firefox_passwords/* ~/.mozilla/firefox/*.default-release/
+# cp /data/install/firefox_passwords/* ~/.mozilla/firefox/*.default-release/
