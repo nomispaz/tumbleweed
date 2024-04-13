@@ -36,7 +36,7 @@ sudo zypper addrepo https://rpm.tuxedocomputers.com/opensuse/15.5/repo-tuxedo-co
 sudo zypper refresh
 
 # install various programs
-sudo zypper install git thunderbird clipgrab clamav keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch osc spec-cleaner testdisk screenfetch veracrypt neovim emacs fish alacritty discord gcc gcc-c++ mangohud htop steam mpv
+sudo zypper install git thunderbird clipgrab clamav keepassxc virt-manager patterns-server-kvm_tools patterns-server-kvm_server chromium flatpak calibre dkms screenfetch osc spec-cleaner testdisk screenfetch veracrypt neovim emacs fish alacritty discord gcc gcc-c++ mangohud htop steam mpv libreoffice
 
 #tuxedo-keyboard an tuxedo-control-center via tuxedo-repos
 sudo zypper install tuxedo-control-center tuxedo-drivers
