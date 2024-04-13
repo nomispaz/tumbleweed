@@ -72,7 +72,7 @@ sudo dracut -f
 reboot
 
 #enable nvidia-powerd: https://download.nvidia.com/XFree86/Linux-x86_64/510.73.05/README/dynamicboost.html
-sudo cp /usr/share/doc/NVIDIA_GLX-1.0/nvidia-dbus.conf /etc/dbus-1/system.d
+sudo cp nvidia-dbus.conf /etc/dbus-1/system.d
 sudo systemctl enable nvidia-powerd.service
 sudo systemctl start nvidia-powerd.service
 
