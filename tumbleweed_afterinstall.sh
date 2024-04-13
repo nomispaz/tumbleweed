@@ -57,14 +57,6 @@ flatpak install flathub com.obsproject.Studio
 #install freeplan mindmapping tool from flathub --> I don't use this program currently
 #flatpak install flathub org.freeplane.App
 
-#add vlc-repo and install vlc-player
-sudo zypper addrepo https://download.videolan.org/SuSE/Tumbleweed VLC
-sudo zypper install vlc
-
-#virtual machines
-sudo systemctl enable libvirtd.service
-sudo systemctl start libvirtd.service
-
 # activate dkms. currently not necessary since I don't use packages activated via dkms anymore
 # sudo systemctl enable dkms.service
 # sudo systemctl start dkms.service
