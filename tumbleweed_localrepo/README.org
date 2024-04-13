@@ -1,49 +1,73 @@
 * create osc-folder
+#+BEGIN_SRC bash :tangle prepare_osc_folder.sh
 mkdir /data/osc
+#+END_SRC
 
 * Mesa
 ** Checkout from Mesa-Repo
+#+BEGIN_SRC bash :tangle mesa.sh
 cd /data/osc
 
-osc -A https://api.opensuse.org checkout X11:XOrg/Mesa & cd /data/osc/X11:XOrg/Mesa
+osc -A https://api.opensuse.org checkout X11:XOrg/Mesa
 
 cd /data/osc/X11:XOrg/Mesa
+#+END_SRC
 
 *** Builds
 **** Without drivers
 - build mesa without drivers and save rpms to local_repo. Use BUILD_ORG to enable codecs
 - Set releasenumber to the number used in the original repo
 
+#+BEGIN_SRC bash :tangle mesa.sh
 osc build openSUSE_Tumbleweed --clean -k /home/simonheise/git_repos/tumbleweed/tumbleweed_localrepo/rpms/mesa --define 'BUILD_ORIG 1' --release 1561
+#+END_SRC
 
 ****  With drivers
 - build mesa with drivers and save rpms to local_repo. Use BUILD_ORG 1 to enable codecs
+#+BEGIN_SRC bash :tangle mesa.sh
 osc build openSUSE_Tumbleweed --clean -M drivers -k /home/simonheise/git_repos/tumbleweed/tumbleweed_localrepo/rpms/mesa --define 'BUILD_ORIG 1' --release 1561
+#+END_SRC
 
 * SVT-AV1
 - as dependency for ffmpeg
 
 ** Checkout
+#+BEGIN_SRC bash :tangle SVT-AV1.sh
 cd /data/osc
 
 osc -A https://api.opensuse.org checkout multimedia:libs/SVT-AV1
+#+END_SRC
 
 ** Build
+#+BEGIN_SRC bash :tangle SVT-AV1.sh
 cd /data/osc/multimedia:libs/SVT-AV1
 
 osc build openSUSE_Tumbleweed --clean -k /home/simonheise/git_repos/tumbleweed/tumbleweed_localrepo/rpms/SVT-AV1
+#+END_SRC
 
 * FFMPEG
 ** Checkout
+#+BEGIN_SRC bash :tangle ffmpeg-6.sh
 cd /data/osc
 
 osc -A https://api.opensuse.org checkout multimedia:libs/ffmpeg-6
 
 cd /data/osc/multimedia:libs/ffmpeg-6
+#+END_SRC
 
 ** Build
 - BUILD_ORIG 1 to enable codecs
+#+BEGIN_SRC bash :tangle ffmpeg-6.sh
 osc build openSUSE_Tumbleweed --clean -k /home/simonheise/git_repos/tumbleweed/tumbleweed_localrepo/rpms/ffmpeg-6/ --define 'BUILD_ORIG 1'
+#+END_SRC
+
+* Cleanup osc-folder
+#+BEGIN_SRC bash :tangle cleanup.sh
+rm -r /data/osc
+#+END_SRC
 
 * Add local folder as repo
+#+BEGIN_SRC bash :tangle add-local-repo.sh
 sudo zypper addrepo -cfGp 90 'dir:/home/simonheise/git_repos/tumbleweed/tumbleweed_localrepo/rpms/' nomispaz_local
+#+END_SRC
+
